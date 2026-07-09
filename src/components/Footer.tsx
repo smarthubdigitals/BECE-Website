@@ -6,7 +6,7 @@ export default function Footer() {
   };
 
   const socials = [
-    { name: 'WhatsApp', href: 'https://wa.me/233241234567', icon: MessageSquare, color: 'hover:text-emerald-cta hover:bg-emerald-cta/10' },
+    { name: 'WhatsApp', href: 'https://wa.me/233599003995', icon: MessageSquare, color: 'hover:text-emerald-cta hover:bg-emerald-cta/10' },
     { name: 'LinkedIn', href: '#', icon: Linkedin, color: 'hover:text-royal hover:bg-royal/10' },
     { name: 'Instagram', href: '#', icon: Instagram, color: 'hover:text-pink-500 hover:bg-pink-500/10' },
     { name: 'Facebook', href: '#', icon: Facebook, color: 'hover:text-blue-600 hover:bg-blue-600/10' },

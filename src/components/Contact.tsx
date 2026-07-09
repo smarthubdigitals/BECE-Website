@@ -156,10 +156,10 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                   <div>
                     <h4 className="font-poppins font-bold text-xs uppercase text-gray-400 tracking-wider">Phone / WhatsApp</h4>
                     <a 
-                      href="tel:+233241234567" 
+                      href="tel:+233599003995" 
                       className="font-sans text-sm sm:text-base text-navy font-semibold hover:text-emerald-cta transition-colors mt-0.5 block"
                     >
-                      +233 24 123 4567
+                      0599003995
                     </a>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                   <div>
                     <h4 className="font-poppins font-bold text-xs uppercase text-gray-400 tracking-wider">Location</h4>
                     <p className="font-sans text-sm sm:text-base text-gray-800 font-semibold mt-0.5">
-                      Accra, Ghana
+                      Tamale, Ghana
                     </p>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                 </p>
               </div>
               <a
-                href="https://wa.me/233241234567?text=Hello%20Abdul,%20I%20visited%20your%20digital%20portfolio%20and%20would%20love%20to%20discuss%20a%20project!"
+                href="https://wa.me/233599003995?text=Hello%20Abdul,%20I%20visited%20your%20digital%20portfolio%20and%20would%20love%20to%20discuss%20a%20project!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-emerald-cta p-3 rounded-full hover:scale-110 transition-transform flex items-center justify-center shrink-0 shadow-md cursor-pointer"
@@ -226,7 +226,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
                   <a
-                    href={`https://wa.me/233241234567?text=Hi%20Abdul,%20I%20just%20submitted%20a%20project%20form%20for%20${encodeURIComponent(lastSubmission?.serviceOfInterest || 'services')}%20on%20your%20portfolio!`}
+                    href={`https://wa.me/233599003995?text=Hi%20Abdul,%20I%20just%20submitted%20a%20project%20form%20for%20${encodeURIComponent(lastSubmission?.serviceOfInterest || 'services')}%20on%20your%20portfolio!`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-emerald-cta hover:bg-emerald-cta/90 text-white px-5 py-2.5 rounded-full font-poppins font-semibold text-xs transition-colors cursor-pointer"
