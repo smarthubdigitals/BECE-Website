@@ -12,6 +12,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     service: 'General Query',
     message: '',
   });
@@ -28,6 +29,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
       id: 'sub-mock-1',
       name: 'Rev. Frank Osei',
       email: 'frank.osei@hopeyouth.org',
+      phone: '0241234567',
       message: 'Hello Abdul, we loved your video editing work on the reels project. We would love to book you to design flyers for our upcoming youth conference. Let us know your availability.',
       serviceOfInterest: 'Graphic Design Services',
       timestamp: 'Today, 10:45 AM',
@@ -36,6 +38,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
       id: 'sub-mock-2',
       name: 'Maame Serwaah',
       email: 'info@serwaahcouture.com',
+      phone: '0559876543',
       message: 'The landing page is performing incredibly well! We would like to add an interactive map and basic analytics. Let me know when you can jump on a quick WhatsApp call.',
       serviceOfInterest: 'Website Design Services',
       timestamp: 'Today, 9:15 AM',
@@ -83,6 +86,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
       body: JSON.stringify({
         name: formData.name,
         email: formData.email,
+        phone: formData.phone,
         service: formData.service,
         message: formData.message
       })
@@ -93,6 +97,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
           id: `sub-${Date.now()}`,
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           message: formData.message,
           serviceOfInterest: formData.service,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (Just Now)',
@@ -108,6 +113,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
         setFormData({
           name: '',
           email: '',
+          phone: '',
           service: 'General Query',
           message: '',
         });
@@ -323,25 +329,43 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                   </div>
                 </div>
 
-                {/* Service Dropdown */}
-                <div>
-                  <label htmlFor="service" className="block text-xs font-poppins font-bold text-gray-400 uppercase tracking-wider mb-2">
-                    Service of Interest
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full bg-gray-50 border border-gray-200 focus:border-royal focus:bg-white p-3 rounded-xl text-sm font-sans outline-none transition-all"
-                  >
-                    <option value="General Query">General Discussion / Say Hello</option>
-                    <option value="Graphic Design Services">Graphic Design Services (Flyers, Logo, Posts)</option>
-                    <option value="Website Design Services">Website Design Services (Single Page, Landing)</option>
-                    <option value="Content Creation Services">Content Creation Services (Articles, Writing)</option>
-                    <option value="Video Editing Services">Video Editing Services (Reels, Promos)</option>
-                    <option value="Custom Package Program">Custom Dynamic Package (Calculated)</option>
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Phone Number Field */}
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-poppins font-bold text-gray-400 uppercase tracking-wider mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="e.g. 0599003995"
+                      className="w-full bg-gray-50 border border-gray-200 focus:border-royal focus:bg-white p-3 rounded-xl text-sm font-sans outline-none transition-all"
+                    />
+                  </div>
+
+                  {/* Service Dropdown */}
+                  <div>
+                    <label htmlFor="service" className="block text-xs font-poppins font-bold text-gray-400 uppercase tracking-wider mb-2">
+                      Service of Interest
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-gray-50 border border-gray-200 focus:border-royal focus:bg-white p-3 rounded-xl text-sm font-sans outline-none transition-all cursor-pointer"
+                    >
+                      <option value="General Query">General Discussion / Say Hello</option>
+                      <option value="Graphic Design Services">Graphic Design Services (Flyers, Logo, Posts)</option>
+                      <option value="Website Design Services">Website Design Services (Single Page, Landing)</option>
+                      <option value="Content Creation Services">Content Creation Services (Articles, Writing)</option>
+                      <option value="Video Editing Services">Video Editing Services (Reels, Promos)</option>
+                      <option value="Custom Package Program">Custom Dynamic Package (Calculated)</option>
+                    </select>
+                  </div>
                 </div>
 
                 {/* Message Field */}
@@ -422,7 +446,9 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                     <h5 className="font-poppins font-bold text-xs text-navy">
                       Sender: {sub.name}
                     </h5>
-                    <p className="font-mono text-[10px] text-gray-400 mt-0.5">{sub.email}</p>
+                    <p className="font-mono text-[10px] text-gray-400 mt-0.5">
+                      Email: {sub.email} {sub.phone && ` | Phone: ${sub.phone}`}
+                    </p>
                     <span className="inline-block text-[9px] font-poppins font-bold text-royal bg-royal/10 px-2 py-0.5 rounded mt-2 uppercase">
                       {sub.serviceOfInterest}
                     </span>
