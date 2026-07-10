@@ -69,7 +69,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
     setFormErrors(null);
 
     // Basic Validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
       setFormErrors('Please fill out all required fields.');
       return;
     }
@@ -333,7 +333,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                   {/* Phone Number Field */}
                   <div>
                     <label htmlFor="phone" className="block text-xs font-poppins font-bold text-gray-400 uppercase tracking-wider mb-2">
-                      Phone Number
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="phone"
@@ -343,6 +343,7 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
                       onChange={handleChange}
                       placeholder="e.g. 0599003995"
                       className="w-full bg-gray-50 border border-gray-200 focus:border-royal focus:bg-white p-3 rounded-xl text-sm font-sans outline-none transition-all"
+                      required
                     />
                   </div>
 
