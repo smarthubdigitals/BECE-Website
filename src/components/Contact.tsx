@@ -73,32 +73,61 @@ export default function Contact({ customServiceSummary, onClearCustomSummary }: 
 
     setIsSubmitting(true);
 
-    // Simulate Network latency of 1 second
-    setTimeout(() => {
-      const newSubmission: ContactSubmission = {
-        id: `sub-${Date.now()}`,
+    // Formspree Integration API Call
+    fetch('https://formspree.io/f/mbdvnydz', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
         name: formData.name,
         email: formData.email,
-        message: formData.message,
-        serviceOfInterest: formData.service,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (Just Now)',
-      };
+        service: formData.service,
+        message: formData.message
+      })
+    })
+    .then(async (response) => {
+      if (response.ok) {
+        const newSubmission: ContactSubmission = {
+          id: `sub-${Date.now()}`,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          serviceOfInterest: formData.service,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (Just Now)',
+        };
 
-      // Add to Session Inbox
-      setSessionInbox((prev) => [newSubmission, ...prev]);
-      setLastSubmission(newSubmission);
+        // Add to Session Inbox
+        setSessionInbox((prev) => [newSubmission, ...prev]);
+        setLastSubmission(newSubmission);
+        setIsSubmitting(false);
+        setShowSuccess(true);
+
+        // Clear Form fields & selected summary
+        setFormData({
+          name: '',
+          email: '',
+          service: 'General Query',
+          message: '',
+        });
+        onClearCustomSummary();
+      } else {
+        const data = await response.json();
+        if (data && data.errors) {
+          const errMsg = data.errors.map((error: { message: string }) => error.message).join(', ');
+          setFormErrors(errMsg || 'Oops! There was a problem submitting your form.');
+        } else {
+          setFormErrors('Oops! There was a problem submitting your form.');
+        }
+        setIsSubmitting(false);
+      }
+    })
+    .catch((error) => {
+      console.error('Form submission error:', error);
+      setFormErrors('Oops! There was a problem submitting your form. Please check your network connection and try again.');
       setIsSubmitting(false);
-      setShowSuccess(true);
-
-      // Clear Form fields & selected summary
-      setFormData({
-        name: '',
-        email: '',
-        service: 'General Query',
-        message: '',
-      });
-      onClearCustomSummary();
-    }, 1000);
+    });
   };
 
   return (
