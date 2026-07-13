@@ -1,4 +1,6 @@
 import { Project, SkillGroup, Service, Testimonial } from './types';
+import portfolioFlyer from './assets/images/portfolio_flyer_1783591947268.jpg';
+import portfolioWebsite from './assets/images/portfolio_website_1783591958001.jpg';
 
 export const projects: Project[] = [
   {
@@ -6,7 +8,7 @@ export const projects: Project[] = [
     title: 'Business Flyer Design',
     category: 'Graphic Design',
     description: 'Vibrant and eye-catching promotional flyer designed to increase event attendance and brand awareness.',
-    image: '/src/assets/images/portfolio_flyer_1783591947268.jpg',
+    image: portfolioFlyer,
     tools: ['Canva', 'Figma', 'Adobe Photoshop'],
     longDescription: 'Designed a premium quality double-sided business flyer for a local retail shop\'s grand opening. Structured with a clean visual grid, high contrast typography, and strategic Call-to-Actions (CTAs) to drive local foot traffic. Optimized for high-resolution print and rapid social media sharing via WhatsApp and Instagram.',
     clientType: 'Local Retail Small Business',
@@ -42,7 +44,7 @@ export const projects: Project[] = [
     title: 'One-Page Business Website',
     category: 'Website Design',
     description: 'A responsive, modern, and mobile-friendly portfolio/service page designed to attract clients.',
-    image: '/src/assets/images/portfolio_website_1783591958001.jpg',
+    image: portfolioWebsite,
     tools: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
     longDescription: 'Coded a high-conversion, responsive one-page landing page for an NGO\'s youth skills training campaign. Features structured layout, smooth scroll navigation, interactive Q&A elements, and a clean contact intake form to securely capture lead queries.',
     clientType: 'Ghanaian Youth Empowerment NGO',

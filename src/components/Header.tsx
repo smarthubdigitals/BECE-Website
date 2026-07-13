@@ -70,18 +70,18 @@ export default function Header({ onContactClick }: HeaderProps) {
           {/* Logo / Name */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center space-x-2 cursor-pointer group"
+            className="flex items-center space-x-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-lg bg-royal flex items-center justify-center overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-300">
+            <div className="w-12 h-12 rounded-xl bg-navy-light/60 backdrop-blur-sm border-2 border-emerald-cta/60 flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(16,185,129,0.25)] group-hover:scale-105 group-hover:border-cyan-accent group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300">
               <img 
-                src="https://imgur.com/VIOgWUK.jpg" 
+                src="https://imgur.com/SciBXp8.png" 
                 alt="Abdul Waheed Logo" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-1"
                 referrerPolicy="no-referrer"
               />
             </div>
             <div>
-              <span className="font-poppins font-bold text-lg text-white block leading-none">
+              <span className="font-poppins font-bold text-lg text-white block leading-none group-hover:text-cyan-accent transition-colors duration-300">
                 Abdul Waheed
               </span>
               <span className="font-sans text-[10px] text-cyan-accent font-semibold uppercase tracking-widest block mt-0.5">

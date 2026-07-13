@@ -23,12 +23,12 @@ export default function Footer() {
           
           {/* Left - Branding */}
           <div className="text-center md:text-left space-y-2">
-            <div className="flex items-center justify-center md:justify-start space-x-2">
-              <div className="w-8 h-8 rounded bg-royal flex items-center justify-center overflow-hidden">
+            <div className="flex items-center justify-center md:justify-start space-x-3">
+              <div className="w-10 h-10 rounded-lg bg-navy-light/60 border border-emerald-cta/40 flex items-center justify-center overflow-hidden shadow-sm">
                 <img 
-                  src="https://imgur.com/VIOgWUK.jpg" 
+                  src="https://imgur.com/SciBXp8.png" 
                   alt="Abdul Waheed Logo" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-0.5"
                   referrerPolicy="no-referrer"
                 />
               </div>
